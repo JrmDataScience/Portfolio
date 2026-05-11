@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --bg: #edf6fb;
+  --nav: #164d76;
+  --panel: #ffffff;
+  --accent: #2481c7;
+}
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'raleway', system-ui, sans-serif;
+  background: linear-gradient(180deg, #f0f7fb 0%, #e7f1f8 100%);
+  color: #102d43;
+}
+body {
+  overflow-x: hidden;
+}
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 22px 38px;
+  background: var(--nav);
+}
+.logo {
+  position: absolute;
+  top: 0px;
+  left: 40px;
+  z-index: 20;
+}
+.logo img{
+    width: 150px;
+    height: auto;
+}
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  transition: background 0.3s, color 0.3s;
+  font-family: 'montserrat', sans-serif;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.skills-page {
+  width: min(1100px, calc(100% - 46px));
+  margin: 48px auto 72px;
+  display: grid;
+  gap: 32px;
+}
+.skills-intro {
+  max-width: 720px;
+  animation: fadeIn 0.9s ease both;
+}
+
+.skills-intro h1 {
+  margin: 0 0 20px;
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+.skills-intro p {
+  color: #4a687c;
+  line-height: 1.8;
+}
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+.skill-card {
+  background: var(--panel);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 20px 48px rgba(15, 47, 72, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  text-align: center;
+}
+.skill-card:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 26px 58px rgba(36, 129, 199, 0.18);
+}
+.skill-card:hover h3,
+.skill-card:hover p {
+  color: #fff;
+}
+.skill-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 16px;
+}
+.skill-card h3 {
+  margin-top: 0;
+  color: #154360;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 900px) {
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 18px 20px;
+  }
+  .skills-page {
+    width: calc(100% - 32px);
+    margin: 32px auto;
+  }
+}
